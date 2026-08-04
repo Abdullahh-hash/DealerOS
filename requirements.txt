@@ -1,0 +1,6 @@
+requests
+python-dotenv
+pydantic
+rich
+sseclient-py
+sqlalchemy
