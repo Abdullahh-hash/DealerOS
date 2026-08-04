@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from app.config.settings import settings
+from app.api.client import FreeFlowClient
 
 
 def print_banner():
@@ -27,6 +28,24 @@ def main():
         print("API Key  : Loaded ✅")
     else:
         print("API Key  : Missing ❌")
+
+
+    print()
+    print("API Test")
+    print("-" * 60)
+
+    try:
+        client = FreeFlowClient()
+
+        expirations = client.get_expirations(settings.default_symbol)
+
+        print("Connection : Success ✅")
+        print("Available Expirations:")
+        print(expirations)
+
+    except Exception as e:
+        print("Connection : Failed ❌")
+        print(f"Reason     : {e}")
 
 
 if __name__ == "__main__":
