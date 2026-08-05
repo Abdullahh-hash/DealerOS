@@ -1,13 +1,14 @@
 from datetime import datetime
+from pprint import pprint
 
-from app.config.settings import settings
 from app.api.client import FreeFlowClient
+from app.config.settings import settings
 
 
 def print_banner():
     print("=" * 60)
-    print("DealerOS v0.1")
-    print("Heartbeat")
+    print("DealerOS v0.3")
+    print("Snapshot Engine")
     print("=" * 60)
     print(f"Started : {datetime.now()}")
     print()
@@ -21,17 +22,16 @@ def main():
 
     print(f"Base URL : {settings.base_url}")
     print(f"Symbol   : {settings.default_symbol}")
-    print(f"Expiry   : {settings.default_expiry}")
     print(f"Timeout  : {settings.request_timeout}")
 
     if settings.api_key:
         print("API Key  : Loaded ✅")
     else:
         print("API Key  : Missing ❌")
-
+        return
 
     print()
-    print("API Test")
+    print("Connecting to FreeFlow...")
     print("-" * 60)
 
     try:
@@ -39,9 +39,25 @@ def main():
 
         expirations = client.get_expirations(settings.default_symbol)
 
-        print("Connection : Success ✅")
-        print("Available Expirations:")
-        print(expirations)
+        expiry_list = expirations["expirations"]
+        selected_expiry = expiry_list[0]
+
+        print("Connection       : Success ✅")
+        print(f"Selected Expiry : {selected_expiry}")
+
+        print()
+        print("Downloading Snapshot...")
+        print("-" * 60)
+
+        snapshot = client.get_snapshot(
+            settings.default_symbol,
+            selected_expiry,
+        )
+
+        print("Snapshot Received ✅")
+        print()
+
+        pprint(snapshot)
 
     except Exception as e:
         print("Connection : Failed ❌")
