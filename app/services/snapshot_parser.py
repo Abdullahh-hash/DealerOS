@@ -10,7 +10,7 @@ def parse_snapshot(data: dict) -> DealerSnapshot:
 
     contracts = []
 
-    for contract in data.get("contracts", []):
+    for contract in data.get("rows", []):
         contracts.append(
             OptionContract(
                 strike=contract["strike"],
@@ -32,16 +32,33 @@ def parse_snapshot(data: dict) -> DealerSnapshot:
             )
         )
 
-    snapshot = DealerSnapshot(
+        snapshot = DealerSnapshot(
         symbol=data["symbol"],
+        exp=data["exp"],
         timestamp=data["timestamp"],
+
         spot=data["spot"],
+        dte=data["dte"],
+
         total_gex=data.get("total_gex"),
         total_dex=data.get("total_dex"),
         total_ag=data.get("total_ag"),
         total_dag=data.get("total_dag"),
+
+        net_premium=data.get("net_premium"),
+
+        gross_dex=data.get("gross_dex"),
+        gross_vex=data.get("gross_vex"),
+        gross_charmex=data.get("gross_charmex"),
+
         total_vol=data.get("total_vol"),
+
+        max_pain=data.get("max_pain"),
         vol_trigger=data.get("vol_trigger"),
+
+        atm_iv=data.get("atm_iv"),
+        model=data.get("model"),
+
         contracts=contracts,
     )
 

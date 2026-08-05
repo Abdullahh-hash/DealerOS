@@ -1,6 +1,6 @@
 from datetime import datetime
 from pprint import pprint
-
+from app.services.snapshot_parser import parse_snapshot
 from app.api.client import FreeFlowClient
 from app.config.settings import settings
 
@@ -49,33 +49,34 @@ def main():
         print("Downloading Snapshot...")
         print("-" * 60)
 
-        snapshot = client.get_snapshot(
+        raw_snapshot = client.get_snapshot(
             settings.default_symbol,
             selected_expiry,
         )
 
+        snapshot = parse_snapshot(raw_snapshot)
+
+        print()
+        print("Parsed Snapshot")
+        print("-" * 60)
+        print(f"Symbol      : {snapshot.symbol}")
+        print(f"Spot        : {snapshot.spot}")
+        print(f"Expiry      : {snapshot.exp}")
+        print(f"Total GEX   : {snapshot.total_gex}")
+        print(f"Contracts   : {len(snapshot.contracts)}")
+
+        if snapshot.contracts:
+            first = snapshot.contracts[0]
+
+            print()
+            print("First Contract")
+            print("-" * 60)
+            print(f"Strike : {first.strike}")
+            print(f"Right  : {first.right}")
+            print(f"Gamma  : {first.gamma}")
+            print(f"GEX    : {first.gex}")
+
        
-        print("Snapshot Received ✅")
-        print()
-
-        print("=" * 60)
-        print("SNAPSHOT KEYS")
-        print("=" * 60)
-
-        print(snapshot.keys())
-
-        print("=" * 60)
-        print()
-
-        print("Saving snapshot...")
-        print("=" * 60)
-
-        import json
-
-        with open("snapshot.json", "w") as f:
-            json.dump(snapshot, f, indent=2)
-
-        print("Snapshot saved to snapshot.json ✅")
 
     except Exception as e:
         print("Connection : Failed ❌")
