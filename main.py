@@ -54,10 +54,28 @@ def main():
             selected_expiry,
         )
 
+       
         print("Snapshot Received ✅")
         print()
 
-        pprint(snapshot)
+        print("=" * 60)
+        print("SNAPSHOT KEYS")
+        print("=" * 60)
+
+        print(snapshot.keys())
+
+        print("=" * 60)
+        print()
+
+        print("Saving snapshot...")
+        print("=" * 60)
+
+        import json
+
+        with open("snapshot.json", "w") as f:
+            json.dump(snapshot, f, indent=2)
+
+        print("Snapshot saved to snapshot.json ✅")
 
     except Exception as e:
         print("Connection : Failed ❌")
