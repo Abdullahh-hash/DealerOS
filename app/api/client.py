@@ -55,3 +55,19 @@ class FreeFlowClient:
         response.raise_for_status()
 
         return response.json()
+
+    def get_flow(self, symbol: str, expiry: str):
+        """Retrieve flow data."""
+        response = requests.get(
+            "https://www.free-flow.site/public/flow",
+            headers=self.headers,
+            params={
+                "symbol": symbol,
+                "exp": expiry,
+            },
+            timeout=self.timeout,
+        )
+
+        response.raise_for_status()
+
+        return response.json()

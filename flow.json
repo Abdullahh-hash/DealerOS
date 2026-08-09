@@ -1,0 +1,391 @@
+{
+  "symbol": "NDX",
+  "exp": "2026-08-10",
+  "spot": 29722.303,
+  "dte": 2,
+  "window_min": 0,
+  "net_premium": -3622598.0,
+  "bull_premium": 5945258.0,
+  "bear_premium": 19344604.0,
+  "net_directional": -13399346.0,
+  "net_delta_notional": -156872906.94,
+  "call_premium": {
+    "buy": 5698620.0,
+    "sell": 14209592.0
+  },
+  "put_premium": {
+    "buy": 5135012.0,
+    "sell": 246638.0
+  },
+  "put_call_prem_ratio": 0.27,
+  "counts": {
+    "classified": 444,
+    "buy": 259,
+    "sell": 185
+  },
+  "by_strike": [
+    {
+      "strike": 24500.0,
+      "call_net": -3092736.0,
+      "put_net": 0.0,
+      "net": -3092736.0
+    },
+    {
+      "strike": 29320.0,
+      "call_net": 2353000.0,
+      "put_net": 2815.0,
+      "net": 2355815.0
+    },
+    {
+      "strike": 28690.0,
+      "call_net": -883150.0,
+      "put_net": 3803.0,
+      "net": -879347.0
+    },
+    {
+      "strike": 28930.0,
+      "call_net": 711921.0,
+      "put_net": 0.0,
+      "net": 711921.0
+    },
+    {
+      "strike": 28890.0,
+      "call_net": -700150.0,
+      "put_net": -360.0,
+      "net": -700510.0
+    },
+    {
+      "strike": 28960.0,
+      "call_net": 693266.0,
+      "put_net": 890.0,
+      "net": 694156.0
+    },
+    {
+      "strike": 31000.0,
+      "call_net": 0.0,
+      "put_net": 670310.0,
+      "net": 670310.0
+    },
+    {
+      "strike": 30230.0,
+      "call_net": -520.0,
+      "put_net": 506016.0,
+      "net": 505496.0
+    },
+    {
+      "strike": 24600.0,
+      "call_net": -494043.0,
+      "put_net": 0.0,
+      "net": -494043.0
+    },
+    {
+      "strike": 28700.0,
+      "call_net": -490160.0,
+      "put_net": 293.0,
+      "net": -489867.0
+    },
+    {
+      "strike": 28800.0,
+      "call_net": -441165.0,
+      "put_net": 280.0,
+      "net": -440885.0
+    },
+    {
+      "strike": 30450.0,
+      "call_net": 200.0,
+      "put_net": 394125.0,
+      "net": 394325.0
+    },
+    {
+      "strike": 28675.0,
+      "call_net": 352563.0,
+      "put_net": 1005.0,
+      "net": 353568.0
+    },
+    {
+      "strike": 26400.0,
+      "call_net": -327480.0,
+      "put_net": 0.0,
+      "net": -327480.0
+    },
+    {
+      "strike": 28925.0,
+      "call_net": -324740.0,
+      "put_net": 0.0,
+      "net": -324740.0
+    },
+    {
+      "strike": 26475.0,
+      "call_net": -319985.0,
+      "put_net": 0.0,
+      "net": -319985.0
+    },
+    {
+      "strike": 26500.0,
+      "call_net": -314600.0,
+      "put_net": 43.0,
+      "net": -314557.0
+    },
+    {
+      "strike": 26550.0,
+      "call_net": -309605.0,
+      "put_net": 0.0,
+      "net": -309605.0
+    },
+    {
+      "strike": 28710.0,
+      "call_net": -291201.0,
+      "put_net": 4300.0,
+      "net": -286901.0
+    },
+    {
+      "strike": 28500.0,
+      "call_net": 255860.0,
+      "put_net": 215.0,
+      "net": 256075.0
+    }
+  ],
+  "notable": [
+    {
+      "strike": 29320.0,
+      "right": "C",
+      "side": "buy",
+      "price": 470.6,
+      "size": 50,
+      "premium": 2353000.0,
+      "bid": 393.3,
+      "ask": 434.4,
+      "delta": 0.9662,
+      "ts": 1785958028616052992
+    },
+    {
+      "strike": 28690.0,
+      "right": "C",
+      "side": "sell",
+      "price": 883.15,
+      "size": 10,
+      "premium": 883150.0,
+      "bid": 938.5,
+      "ask": 1101.0,
+      "delta": 0.0,
+      "ts": 1786026062953469952
+    },
+    {
+      "strike": 28930.0,
+      "right": "C",
+      "side": "buy",
+      "price": 1017.03,
+      "size": 7,
+      "premium": 711921.0,
+      "bid": 750.7,
+      "ask": 812.8,
+      "delta": 0.0,
+      "ts": 1785939152333446144
+    },
+    {
+      "strike": 28890.0,
+      "right": "C",
+      "side": "sell",
+      "price": 700.15,
+      "size": 10,
+      "premium": 700150.0,
+      "bid": 789.6,
+      "ask": 854.4,
+      "delta": 0.0,
+      "ts": 1786113924645501952
+    },
+    {
+      "strike": 28960.0,
+      "right": "C",
+      "side": "buy",
+      "price": 990.38,
+      "size": 7,
+      "premium": 693266.0,
+      "bid": 720.7,
+      "ask": 784.4,
+      "delta": 0.0,
+      "ts": 1785939152333446144
+    },
+    {
+      "strike": 30230.0,
+      "right": "P",
+      "side": "buy",
+      "price": 632.52,
+      "size": 8,
+      "premium": 506016.0,
+      "bid": 497.9,
+      "ask": 560.9,
+      "delta": -0.8643,
+      "ts": 1786109795883666176
+    },
+    {
+      "strike": 30450.0,
+      "right": "P",
+      "side": "buy",
+      "price": 788.25,
+      "size": 5,
+      "premium": 394125.0,
+      "bid": 713.4,
+      "ask": 774.5,
+      "delta": -0.9018,
+      "ts": 1786115482104875008
+    },
+    {
+      "strike": 28675.0,
+      "right": "C",
+      "side": "buy",
+      "price": 1175.21,
+      "size": 3,
+      "premium": 352563.0,
+      "bid": 953.4,
+      "ask": 1116.0,
+      "delta": 0.0,
+      "ts": 1785940390114080000
+    },
+    {
+      "strike": 28925.0,
+      "right": "C",
+      "side": "sell",
+      "price": 649.48,
+      "size": 5,
+      "premium": 324740.0,
+      "bid": 755.6,
+      "ask": 817.7,
+      "delta": 0.0,
+      "ts": 1786026628515003392
+    },
+    {
+      "strike": 27500.0,
+      "right": "C",
+      "side": "sell",
+      "price": 1200.58,
+      "size": 2,
+      "premium": 240116.0,
+      "bid": 1960.0,
+      "ask": 2446.6,
+      "delta": 0.0,
+      "ts": 1785768839683775488
+    },
+    {
+      "strike": 29225.0,
+      "right": "C",
+      "side": "sell",
+      "price": 328.18,
+      "size": 7,
+      "premium": 229726.0,
+      "bid": 467.4,
+      "ask": 531.5,
+      "delta": 0.0,
+      "ts": 1786039584186410496
+    },
+    {
+      "strike": 28600.0,
+      "right": "C",
+      "side": "sell",
+      "price": 440.68,
+      "size": 5,
+      "premium": 220340.0,
+      "bid": 1028.2,
+      "ask": 1190.1,
+      "delta": 0.0,
+      "ts": 1785784833544955904
+    },
+    {
+      "strike": 28650.0,
+      "right": "C",
+      "side": "sell",
+      "price": 398.09,
+      "size": 5,
+      "premium": 199045.0,
+      "bid": 978.3,
+      "ask": 1140.9,
+      "delta": 0.0,
+      "ts": 1785786106379298560
+    },
+    {
+      "strike": 28450.0,
+      "right": "C",
+      "side": "sell",
+      "price": 485.84,
+      "size": 4,
+      "premium": 194336.0,
+      "bid": 1177.8,
+      "ask": 1339.7,
+      "delta": 0.0,
+      "ts": 1785775876191608832
+    },
+    {
+      "strike": 30900.0,
+      "right": "P",
+      "side": "buy",
+      "price": 1936.91,
+      "size": 1,
+      "premium": 193691.0,
+      "bid": 1116.0,
+      "ask": 1274.6,
+      "delta": -0.9244,
+      "ts": 1784565435598427648
+    },
+    {
+      "strike": 28525.0,
+      "right": "C",
+      "side": "sell",
+      "price": 892.91,
+      "size": 2,
+      "premium": 178582.0,
+      "bid": 1103.0,
+      "ask": 1264.9,
+      "delta": 0.0,
+      "ts": 1785851991695577856
+    },
+    {
+      "strike": 28775.0,
+      "right": "C",
+      "side": "sell",
+      "price": 853.37,
+      "size": 2,
+      "premium": 170674.0,
+      "bid": 854.0,
+      "ask": 1016.4,
+      "delta": 0.0,
+      "ts": 1785857136669445376
+    },
+    {
+      "strike": 30600.0,
+      "right": "P",
+      "side": "buy",
+      "price": 1658.23,
+      "size": 1,
+      "premium": 165823.0,
+      "bid": 813.0,
+      "ask": 975.0,
+      "delta": -0.9122,
+      "ts": 1784641535104321536
+    },
+    {
+      "strike": 29230.0,
+      "right": "C",
+      "side": "buy",
+      "price": 536.67,
+      "size": 3,
+      "premium": 161001.0,
+      "bid": 462.8,
+      "ask": 526.9,
+      "delta": 0.0,
+      "ts": 1785858827844906752
+    },
+    {
+      "strike": 28350.0,
+      "right": "C",
+      "side": "sell",
+      "price": 535.05,
+      "size": 3,
+      "premium": 160515.0,
+      "bid": 1210.2,
+      "ask": 1523.9,
+      "delta": 0.0,
+      "ts": 1785768806304087296
+    }
+  ],
+  "timestamp": "2026-08-08T18:10:45.609516"
+}

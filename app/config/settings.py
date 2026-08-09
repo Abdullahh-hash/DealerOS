@@ -18,7 +18,7 @@ class Settings:
 settings = Settings(
     api_key=os.getenv("FREEFLOW_API_KEY", ""),
     base_url=os.getenv("BASE_URL", ""),
-    request_timeout=int(os.getenv("REQUEST_TIMEOUT", "10")),
+    request_timeout=int(os.getenv("REQUEST_TIMEOUT", "30")),
     default_symbol=os.getenv("DEFAULT_SYMBOL", "NDX"),
     default_expiry=os.getenv("DEFAULT_EXPIRY", "0"),
 )
