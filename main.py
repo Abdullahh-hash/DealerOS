@@ -173,7 +173,7 @@ def main():
 
         print(
             f"Dealer Gamma State : "
-            f"{summary.dealer_bias}"
+            f"{summary.gamma_state}"
         )
 
         if summary.total_gex is not None:
@@ -272,103 +272,179 @@ def main():
                 f"{summary.largest_total_oi_value:,}"
             )
 
-        # ====================================================
+                # ====================================================
         # FLOW SUMMARY
         # ====================================================
 
         print()
         print("=" * 60)
-        print("FLOW SUMMARY")
+        print("FLOW STATE")
         print("=" * 60)
 
         print(
-            f"Flow Bias          : "
-            f"{flow_summary['flow_bias']}"
+            f"Directional State : "
+            f"{flow_summary.directional_flow_state}"
         )
 
         print(
-            f"Net Premium        : "
-            f"{flow_summary['net_premium']:,.2f}"
+            f"Net Directional   : "
+            f"{flow_summary.net_directional:,.2f}"
         )
 
         print(
-            f"Net Directional    : "
-            f"{flow_summary['net_directional']:,.2f}"
-        )
-
-        print(
-            f"Net Delta Notional : "
-            f"{flow_summary['net_delta_notional']:,.2f}"
-        )
-
-        print(
-            f"Put/Call Ratio     : "
-            f"{flow_summary['put_call_premium_ratio']}"
-        )
-
-        print(
-            f"Buy Count          : "
-            f"{flow_summary['buy_count']}"
-        )
-
-        print(
-            f"Sell Count         : "
-            f"{flow_summary['sell_count']}"
-        )
-
-        print(
-            f"Buy/Sell Ratio     : "
-            f"{flow_summary['buy_sell_ratio']:.2f}"
+            f"Net Delta Notional: "
+            f"{flow_summary.net_delta_notional:,.2f}"
         )
 
         print()
-        print("Largest Positive Flow")
+        print("Directional Premium")
         print("-" * 60)
 
+        print(
+            f"Bull Premium      : "
+            f"{flow_summary.bull_premium:,.2f}"
+        )
+
+        print(
+            f"Bear Premium      : "
+            f"{flow_summary.bear_premium:,.2f}"
+        )
+
+        print()
+        print("Aggressor Premium")
+        print("-" * 60)
+
+        print(
+            f"Net Premium       : "
+            f"{flow_summary.net_premium:,.2f}"
+        )
+
+        print(
+            f"Call Buy          : "
+            f"{flow_summary.call_buy_premium:,.2f}"
+        )
+
+        print(
+            f"Call Sell         : "
+            f"{flow_summary.call_sell_premium:,.2f}"
+        )
+
+        print(
+            f"Put Buy           : "
+            f"{flow_summary.put_buy_premium:,.2f}"
+        )
+
+        print(
+            f"Put Sell          : "
+            f"{flow_summary.put_sell_premium:,.2f}"
+        )
+
+        print(
+            f"Put/Call Premium  : "
+            f"{flow_summary.put_call_premium_ratio:.2f}"
+        )
+
+        print()
+        print("Classified Trades")
+        print("-" * 60)
+
+        print(
+            f"Classified        : "
+            f"{flow_summary.classified_count}"
+        )
+
+        print(
+            f"Buy Count         : "
+            f"{flow_summary.buy_count}"
+        )
+
+        print(
+            f"Sell Count        : "
+            f"{flow_summary.sell_count}"
+        )
+
+        print(
+            f"Buy/Sell Count    : "
+            f"{flow_summary.classified_buy_sell_ratio:.2f}"
+        )
+
+        print()
+        print("Returned Strike Activity")
+        print("-" * 60)
+
+        print(
+            f"Returned Strikes  : "
+            f"{flow_summary.returned_strike_count}"
+        )
+
         if (
-            flow_summary[
-                "largest_positive_strike"
-            ]
+            flow_summary.largest_call_buy_strike
             is not None
         ):
             print(
-                f"Strike : "
-                f"{flow_summary['largest_positive_strike']}"
+                f"Call Buy Balance  : "
+                f"{flow_summary.largest_call_buy_strike} "
+                f"| "
+                f"{flow_summary.largest_call_buy_value:,.2f}"
             )
 
+        if (
+            flow_summary.largest_call_sell_strike
+            is not None
+        ):
             print(
-                f"Net    : "
-                f"{flow_summary['largest_positive_flow']:,.2f}"
+                f"Call Sell Balance : "
+                f"{flow_summary.largest_call_sell_strike} "
+                f"| "
+                f"{flow_summary.largest_call_sell_value:,.2f}"
             )
 
-        else:
+        if (
+            flow_summary.largest_put_buy_strike
+            is not None
+        ):
             print(
-                "No positive flow within +/-500 points"
+                f"Put Buy Balance   : "
+                f"{flow_summary.largest_put_buy_strike} "
+                f"| "
+                f"{flow_summary.largest_put_buy_value:,.2f}"
+            )
+
+        if (
+            flow_summary.largest_put_sell_strike
+            is not None
+        ):
+            print(
+                f"Put Sell Balance  : "
+                f"{flow_summary.largest_put_sell_strike} "
+                f"| "
+                f"{flow_summary.largest_put_sell_value:,.2f}"
             )
 
         print()
-        print("Largest Negative Flow")
+        print("Returned Strike Direction")
         print("-" * 60)
 
         if (
-            flow_summary[
-                "largest_negative_strike"
-            ]
+            flow_summary.strongest_bullish_directional_strike
             is not None
         ):
             print(
-                f"Strike : "
-                f"{flow_summary['largest_negative_strike']}"
+                f"Strongest Bullish : "
+                f"{flow_summary.strongest_bullish_directional_strike} "
+                f"| "
+                f"{flow_summary.strongest_bullish_directional_value:,.2f}"
             )
 
+        if (
+            flow_summary.strongest_bearish_directional_strike
+            is not None
+        ):
             print(
-                f"Net    : "
-                f"{flow_summary['largest_negative_flow']:,.2f}"
-            )
-
-        else:
-            print(
-                "No negative flow within +/-500 points"
+                f"Strongest Bearish : "
+                f"{flow_summary.strongest_bearish_directional_strike} "
+                f"| "
+                f"{flow_summary.strongest_bearish_directional_value:,.2f}"
             )
 
         # ====================================================

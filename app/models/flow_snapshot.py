@@ -4,10 +4,34 @@ from typing import List, Optional
 
 @dataclass
 class FlowStrike:
+    """
+    Premium-flow activity for one provider-returned strike.
+
+    net:
+        Call net + Put net.
+        Represents the aggressor premium balance.
+
+    directional_net:
+        Call net - Put net.
+        Positive = bullish-classified premium dominates.
+        Negative = bearish-classified premium dominates.
+    """
+
     strike: float
     call_net: float
     put_net: float
     net: float
+
+    @property
+    def aggressor_net(self) -> float:
+        return self.net
+
+    @property
+    def directional_net(self) -> float:
+        return (
+            self.call_net
+            - self.put_net
+        )
 
 
 @dataclass
