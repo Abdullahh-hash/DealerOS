@@ -162,45 +162,114 @@ def main():
             f"Contracts   : {len(snapshot.contracts)}"
         )
 
-        # ====================================================
+                # ====================================================
         # DEALER SUMMARY
         # ====================================================
 
         print()
         print("=" * 60)
-        print("MARKET SUMMARY")
+        print("DEALER STRUCTURE")
         print("=" * 60)
 
         print(
-            f"Dealer Bias       : "
+            f"Dealer Gamma State : "
             f"{summary.dealer_bias}"
         )
 
-        print(
-            f"Gamma Flip        : "
-            f"{summary.gamma_flip}"
-        )
-
-        print(
-            f"Largest Call GEX  : "
-            f"{summary.largest_call_gex}"
-        )
-
-        print(
-            f"Largest Put GEX   : "
-            f"{summary.largest_put_gex}"
-        )
-
-        if summary.support:
+        if summary.total_gex is not None:
             print(
-                f"Support           : "
-                f"{summary.support.strike}"
+                f"Total GEX          : "
+                f"{summary.total_gex:,.2f}"
             )
 
-        if summary.resistance:
+        print()
+        print("GEX Structure")
+        print("-" * 60)
+
+        print(
+            f"Net-GEX Sign Change: "
+            f"{summary.net_gex_sign_change_strike}"
+        )
+
+        if (
+            summary.largest_call_gex_strike
+            is not None
+        ):
             print(
-                f"Resistance        : "
-                f"{summary.resistance.strike}"
+                f"Largest Call GEX   : "
+                f"{summary.largest_call_gex_strike} "
+                f"| "
+                f"{summary.largest_call_gex_value:,.2f}"
+            )
+
+        if (
+            summary.largest_put_gex_strike
+            is not None
+        ):
+            print(
+                f"Largest Put GEX    : "
+                f"{summary.largest_put_gex_strike} "
+                f"| "
+                f"{summary.largest_put_gex_value:,.2f}"
+            )
+
+        if (
+            summary.strongest_positive_net_gex_strike
+            is not None
+        ):
+            print(
+                f"Strongest +Net GEX : "
+                f"{summary.strongest_positive_net_gex_strike} "
+                f"| "
+                f"{summary.strongest_positive_net_gex_value:,.2f}"
+            )
+
+        if (
+            summary.strongest_negative_net_gex_strike
+            is not None
+        ):
+            print(
+                f"Strongest -Net GEX : "
+                f"{summary.strongest_negative_net_gex_strike} "
+                f"| "
+                f"{summary.strongest_negative_net_gex_value:,.2f}"
+            )
+
+        print()
+        print("Open Interest Structure")
+        print("-" * 60)
+
+        if (
+            summary.largest_call_oi_strike
+            is not None
+        ):
+            print(
+                f"Largest Call OI    : "
+                f"{summary.largest_call_oi_strike} "
+                f"| "
+                f"{summary.largest_call_oi_value:,}"
+            )
+
+        if (
+            summary.largest_put_oi_strike
+            is not None
+        ):
+            print(
+                f"Largest Put OI     : "
+                f"{summary.largest_put_oi_strike} "
+                f"| "
+                f"{summary.largest_put_oi_value:,}"
+            )
+
+        if (
+            summary.largest_total_oi_strike
+            is not None
+        ):
+            print(
+                f"Largest Total OI   : "
+                f"{summary.largest_total_oi_strike} "
+                f"| "
+                f"{summary.largest_total_oi_value:,}"
             )
 
         # ====================================================

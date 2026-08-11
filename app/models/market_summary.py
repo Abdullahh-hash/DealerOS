@@ -1,24 +1,49 @@
 from dataclasses import dataclass
 from typing import Optional
 
-from app.models.dealer_zone import DealerZone
-
 
 @dataclass
 class MarketSummary:
+    """
+    Final factual Dealer Engine market summary.
+
+    Structural GEX and OI observations are exposed
+    directly without labeling them support/resistance.
+    """
 
     symbol: str
-
     spot: float
 
-    dealer_bias: str
+    gamma_state: str
+    total_gex: Optional[float]
 
-    gamma_flip: Optional[float]
+    # --------------------------------------------------------
+    # GEX
+    # --------------------------------------------------------
 
-    largest_call_gex: Optional[float]
+    net_gex_sign_change_strike: Optional[float]
 
-    largest_put_gex: Optional[float]
+    largest_call_gex_strike: Optional[float]
+    largest_call_gex_value: Optional[float]
 
-    support: Optional[DealerZone]
+    largest_put_gex_strike: Optional[float]
+    largest_put_gex_value: Optional[float]
 
-    resistance: Optional[DealerZone]
+    strongest_positive_net_gex_strike: Optional[float]
+    strongest_positive_net_gex_value: Optional[float]
+
+    strongest_negative_net_gex_strike: Optional[float]
+    strongest_negative_net_gex_value: Optional[float]
+
+    # --------------------------------------------------------
+    # OPEN INTEREST
+    # --------------------------------------------------------
+
+    largest_call_oi_strike: Optional[float]
+    largest_call_oi_value: Optional[int]
+
+    largest_put_oi_strike: Optional[float]
+    largest_put_oi_value: Optional[int]
+
+    largest_total_oi_strike: Optional[float]
+    largest_total_oi_value: Optional[int]

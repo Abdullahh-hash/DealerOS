@@ -1,5 +1,5 @@
 from app.engines.gamma_analyzer import GammaAnalyzer
-from app.engines.zone_analyzer import ZoneAnalyzer
+from app.engines.oi_analyzer import OIAnalyzer
 from app.engines.summary_builder import SummaryBuilder
 
 
@@ -7,25 +7,27 @@ class DealerEngine:
     """
     Main Dealer Engine.
 
-    Coordinates all dealer analysis components.
+    Coordinates dealer-positioning analysis.
     """
 
     def __init__(self, snapshot):
         self.snapshot = snapshot
 
-        self.gamma = GammaAnalyzer(snapshot)
+        self.gamma = GammaAnalyzer(
+            snapshot
+        )
 
-        self.zones = ZoneAnalyzer(
-            self.gamma.net_gamma_levels()
+        self.oi = OIAnalyzer(
+            snapshot
         )
 
     def summary(self):
         """
-        Return complete market summary.
+        Return the complete DealerOS dealer summary.
         """
 
         return SummaryBuilder(
             self.snapshot,
             self.gamma,
-            self.zones,
+            self.oi,
         ).build()
